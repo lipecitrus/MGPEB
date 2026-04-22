@@ -17,11 +17,12 @@ modulos = [
      "combustivel": 50, "cond_atmosferica": 7, "area_pouso": True, "integridade": 88}
 ]
 
-modulos_ord = sorted(modulos, key=lambda x: x["pouso"])
+def bublle_sort(lista):
+    n = len(lista)
+    for i in range(n):
+        for j in range(0, n - i - 1):
+            if lista[j]['pouso'] > lista[j + 1]['pouso']:
+                lista[j], lista[j + 1] = lista[j + 1], lista[j]
+    return lista
 
-print(modulos_ord)
-
-
-
-
-
+print(bublle_sort(modulos))
