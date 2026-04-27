@@ -17,18 +17,52 @@ modulos = [
      "combustivel": 50, "cond_atmosferica": 7, "area_pouso": True, "integridade": 88}
 ]
 
-# Busca
-menor_comb = min(modulos, key=lambda x: x["combustivel"])
-print("Menor combustível:", menor_comb["nome"])
+# Busca 
+def buscar_menor_combustivel(modulos):
+    if not modulos:
+        return None
+    return min(modulos, key=lambda x: x["combustivel"])
 
-maior_crit = max(m["criticidade"] for m in modulos)
-mais_criticos = [m for m in modulos if m["criticidade"] == maior_crit]
+menor = buscar_menor_combustivel(modulos)
+print(f"Menor combustivel: {menor['nome']} ({menor['combustivel']}%)")
 
-for m in mais_criticos:
-    print("Maior criticidade:", m["nome"])
+def buscar_maior_criticidade(modulos):
+    if not modulos:
+        return []
+    maior = max(m["criticidade"] for m in modulos)
+    return [m for m in modulos if m["criticidade"] == maior]
+
+criticos = buscar_maior_criticidade(modulos)
+for m in criticos:
+    print("Maior Criticidade:", m["nome"])
+
+def buscar_por_nome(modulos, nome):
+    return [m for m in modulos if m["nome"].lower() == nome.lower()]
+
+resultado = buscar_por_nome(modulos, "Medico")
+for m in resultado:
+    print("Encontrado:", m["nome"])
+
+def buscar_maior_prioridade(modulos):
+    return min(modulos, key=lambda x: x["pouso"])
+
+prioritario = buscar_maior_prioridade(modulos)
+print("Maior prioridade:", prioritario["nome"])
+
+# Ordenação
+def bublle_sort(lista):
+    n = len(lista)
+    for i in range(n):
+        print(i)
+        for j in range(0, n - i - 1):
+            if lista[j]['pouso'] > lista[j + 1]['pouso']:
+                lista[j], lista[j + 1] = lista[j + 1], lista[j]
+    return lista
+
+print(bublle_sort(modulos))
 
 # Fila
-fila_pouso = deque(sorted(modulos, key=lambda x: x["pouso"]))
+fila_pouso = deque(bublle_sort(modulos))
 
 # Listas auxiliares
 pousados = []
