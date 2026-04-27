@@ -58,7 +58,10 @@ def bublle_sort(lista):
                 lista[j], lista[j + 1] = lista[j + 1], lista[j]
     return lista
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> ad34900269f44cf6631b0325c883b49f52246f46
 # Fila
 fila_pouso = deque(bublle_sort(modulos))
 
