@@ -53,13 +53,11 @@ print("Maior prioridade:", prioritario["nome"])
 def bublle_sort(lista):
     n = len(lista)
     for i in range(n):
-        print(i)
         for j in range(0, n - i - 1):
             if lista[j]['pouso'] > lista[j + 1]['pouso']:
                 lista[j], lista[j + 1] = lista[j + 1], lista[j]
     return lista
 
-print(bublle_sort(modulos))
 
 # Fila
 fila_pouso = deque(bublle_sort(modulos))
