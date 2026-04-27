@@ -59,8 +59,6 @@ def bublle_sort(lista):
                 lista[j], lista[j + 1] = lista[j + 1], lista[j]
     return lista
 
-print(bublle_sort(modulos))
-
 # Fila
 fila_pouso = deque(bublle_sort(modulos))
 
