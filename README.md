@@ -1,5 +1,45 @@
 # 🚀 MGPEB – Módulo de Gerenciamento de Pouso e Estabilização de Base
 
+Protótipo em Python que simula a autorização de pouso de módulos da missão Aurora Siger em Marte, usando busca, ordenação, fila, pilha e lógica booleana. Projeto de estudo da FIAP.
+
+## ▶️ Como executar
+
+Requer apenas Python 3 (sem dependências externas):
+
+```bash
+python algoritmo.py
+```
+
+## ⚙️ O que o programa faz
+
+| Etapa | Estrutura / técnica | Onde no código |
+|---|---|---|
+| Buscar módulo com menor combustível, maior criticidade, por nome e maior prioridade | Busca linear com `min`, `max` e list comprehension | `buscar_*` |
+| Ordenar os módulos pela prioridade de pouso | Bubble sort | `bubble_sort` |
+| Processar os módulos em ordem | Fila (`collections.deque`) | `fila_pouso` |
+| Autorizar ou bloquear o pouso | Lógica booleana: `combustivel > 30 AND cond_atmosferica > 5 AND area_pouso AND integridade > 60` | `autorizado` |
+| Revisar os módulos bloqueados, do último para o primeiro | Pilha (lista com `append`/`pop`) | `pilha_revisao` |
+
+## 🖥️ Exemplo de saída
+
+```
+Menor combustivel: Habitacao (30%)
+Maior Criticidade: Habitacao
+Maior Criticidade: Energia
+Encontrado: Medico
+Maior prioridade: Energia
+Modulo de Energia autorizado para pouso
+Modulo de Habitacao pouso BLOQUEADO
+Modulo de Medico autorizado para pouso
+Modulo de Logistica autorizado para pouso
+Modulo de Pesquisa autorizado para pouso
+Revisando modulo: Habitacao
+```
+
+O módulo de Habitação é bloqueado porque tem exatamente 30% de combustível, e a regra exige mais de 30%.
+
+---
+
 ## Missão Aurora Siger – Documento de Pesquisa e Planejamento
 
 ---

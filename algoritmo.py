@@ -50,7 +50,7 @@ prioritario = buscar_maior_prioridade(modulos)
 print("Maior prioridade:", prioritario["nome"])
 
 # Ordenação
-def bublle_sort(lista):
+def bubble_sort(lista):
     n = len(lista)
     for i in range(n):
         for j in range(0, n - i - 1):
@@ -59,7 +59,7 @@ def bublle_sort(lista):
     return lista
 
 # Fila
-fila_pouso = deque(bublle_sort(modulos))
+fila_pouso = deque(bubble_sort(modulos))
 
 # Listas auxiliares
 pousados = []
